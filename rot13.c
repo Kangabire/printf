@@ -5,7 +5,7 @@
  * print_R - prints a string in rot13.
  * @R: string to print.
  *
- * Return: number of chars.
+ * Return: number of char
  */
 
 int print_R(va_list R)
