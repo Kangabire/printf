@@ -2,10 +2,16 @@
 #include <stdlib.h>
 
 /**
+<<<<<<< HEAD
  * check_for_specifiers - checks if there is a valid format specifier
  * @format: possible format specifier
  *
  * Return: pointer to valid function or NULL
+=======
+ * _printf - Printf function
+ * @format: format.
+ * Return: Printed chars()
+>>>>>>> 2511b3bfc067158dda731406f8df4dfe10c86670
  */
 
 static int (*check_for_specifiers(const char *format))(va_list)
