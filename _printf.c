@@ -7,7 +7,7 @@
 /**
  * _putchar - writes a character to the standard output
  *@c: the character to write
- *Return: Nothing
+ *Return: Nothing else
  */
 int _putchar(char c)
 {
