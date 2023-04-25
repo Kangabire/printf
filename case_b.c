@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * dec_to_binary - converts a decimal to a binary
+ * dec_to_binary - convert a decimal to a binary
  * @n: variable
  * Return: 0
  */
