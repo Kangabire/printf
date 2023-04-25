@@ -11,24 +11,8 @@
  */
 int _putchar(char c)
 {
-  return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
-/**
- * print_number - prints an integer to stdout
- * @n: The integer to be printed
- *
- * Return: The number of characters printed
- */
-/*int print_number(int n)
-{
-    int count = 0;
-
-    if (n < 0) 
-    {
-        count += _putchar('-');
-        n *= 1;
-    }*/
-    
 /**
  * _strlen -  swaps the values of two integers.
  * @s: String input
@@ -42,7 +26,7 @@ int _strlen(char *s)
 
 	if (s == NULL)
 	{
-		s = "(null)";		
+		s = "(null)";
 		return (0);
 	}
 	while (s)
@@ -58,13 +42,14 @@ int _strlen(char *s)
  * _puts - prints a string, followed by a new line, to stdout
  * @s: String input
  *
- * 	Return: void
+ * Return: void
  */
 
 int _puts(char *s)
 {
 	int i = 0;
 	int len = 0;
+
 	while (s[i])
 	{
 		_putchar(s[i]);
@@ -98,13 +83,13 @@ int _printf(const char *format, ...)
 				break;
 
 			case 's':
-				print += _puts(va_arg(args, char*));				
+				print += _puts(va_arg(args, char*));
 				break;
 
 			case '%':
 				print += _putchar('%');
 				break;
-		        case 'd':
+			case 'd':
 			case 'i':
 				print += int_handler(va_arg(args, int));
 				break;
