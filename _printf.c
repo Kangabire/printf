@@ -93,6 +93,9 @@ int _printf(const char *format, ...)
 			case 'i':
 				print += int_handler(va_arg(args, int));
 				break;
+			case 'b':
+				print += dec_to_binary(va_arg(args, int));
+				break;
 			default:
 				print += _putchar(*format);
 				break;
