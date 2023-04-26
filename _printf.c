@@ -1,90 +1,109 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 
 /**
-<<<<<<< HEAD
- * check_for_specifiers - check if there is a valid format specifier
- * @format: possible format specifier
+ * _putchar - writes a character to the standard output
+ *@c: the character to write
+ *Return: Nothing
+ */
+int _putchar(char c)
+{
+        return (write(1, &c, 1));
+}
+/**
+ * _strlen -  swaps the values of two integers.
+ * @s: String input
  *
- * Return: pointer to valid function or NULL
-=======
- * _printf - Printf function
- * @format: format.
- * Return: Printed chars()
->>>>>>> 2511b3bfc067158dda731406f8df4dfe10c86670
+ * Return: Lenght of string
  */
 
-static int (*check_for_specifiers(const char *format))(va_list)
+int _strlen(char *s)
 {
-	unsigned int i;
-	print_t p[] = {
-		{"c", print_c},
-		{"s", print_s},
-		{"i", print_i},
-		{"d", print_d},
-		{"u", print_u},
-		{"b", print_b},
-		{"o", print_o},
-		{"x", print_x},
-		{"X", print_X},
-		{"p", print_p},
-		{"S", print_S},
-		{"r", print_r},
-		{"R", print_R},
-		{NULL, NULL}
-	};
+        int len = 0;
 
-	for (i = 0; p[i].t != NULL; i++)
-	{
-		if (*(p[i].t) == *format)
-		{
-			break;
-		}
-	}
-	return (p[i].f);
+        if (s == NULL)
+        {
+                s = "(null)";
+                return (0);
+        }
+        while (s)
+        {
+                len++;
+                s++;
+        }
+        return (len);
+
+}
+/**
+ * _puts - prints a string, followed by a new line, to stdout
+ * @s: String input
+ *
+ * Return: void
+ */
+
+int _puts(char *s)
+{
+        int i = 0;
+        int len = 0;
+
+        while (s[i])
+        {
+                _putchar(s[i]);
+                len++;
+                i++;
+        }
+        return (len);
 }
 
 /**
- * _printf - prints anything
- * @format: list of argument types passed to the function
- *
- * Return: number of characters printed
+ * _printf - it is a function that prints
+ * @format:
+ * @...: variable number of functions
+ * Return: Nothing
  */
-
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, count = 0;
-	va_list valist;
-	int (*f)(va_list);
+        va_list args;
+        int print = 0;
 
-	if (format == NULL)
-		return (-1);
-	va_start(valist, format);
-	while (format[i])
-	{
-		for (; format[i] != '%' && format[i]; i++)
-		{
-			_putchar(format[i]);
-			count++;
-		}
-		if (!format[i])
-			return (count);
-		f = check_for_specifiers(&format[i + 1]);
-		if (f != NULL)
-		{
-			count += f(valist);
-			i += 2;
-			continue;
-		}
-		if (!format[i + 1])
-			return (-1);
-		_putchar(format[i]);
-		count++;
-		if (format[i + 1] == '%')
-		i += 2;
-		else
-			i++;
-	}
-	va_end(valist);
-	return (count);
+        va_start(args, format);
+
+        while (*format)
+        {
+                if (*format == '%')
+
+                switch (*(++format))
+                {
+                        case 'c':
+                                print += _putchar(va_arg(args, int));
+                                break;
+
+                        case 's':
+                                print += _puts(va_arg(args, char*));
+                                break;
+
+                        case '%':
+                                print += _putchar('%');
+                                break;
+                        case 'd':
+                        case 'i':
+                                print += int_handler(va_arg(args, int));
+                                break;
+                        default:
+                                print += _putchar(*format);
+                                break;
+
+                }
+        else
+        {
+ print += write(1, &(*format), 1);
+        }
+                format++;
+        }
+        va_end(args);
+
+        return (print);
 }
