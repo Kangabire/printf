@@ -18,7 +18,9 @@
 
 int _strlen(char *s)
 {
- if (s == NULL)
+    int len = 0;
+
+    if (s == NULL)
     {
 	s = "(null)";
 	return (0);

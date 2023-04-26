@@ -5,12 +5,8 @@
 #include <stdlib.h>
 
 /**
- * _putchar - writes a character to the standard output
- *@c: the character to write
- *Return: Nothing
- */
-/**
- * _strlen -  swaps the values of two integers.
+ * _strlen -  determine length of the string
+ *
  * @s: String input
  *
  * Return: Lenght of string
@@ -18,20 +14,20 @@
 
 int _strlen(char *s)
 {
-    int len = 0;
+	int len = 0;
 
-    if (s == NULL)
-    {
+	if (s == NULL)
+	{
 	s = "(null)";
 	return (0);
-    }
-    while (s)
-    {
+	}
+	while (s)
+	{
 	len++;
 	s++;
-    }
-    return (len);
-	
+	}
+	return (len);
+
 }
 /**
  * _puts - prints a string, followed by a new line, to stdout
@@ -42,16 +38,16 @@ int _strlen(char *s)
 
 int _puts(char *s)
 {
-  int i = 0;
-  int len = 0;
-  
-  while (s[i])
-  {
-      _putchar(s[i]);
-      len++;
-      i++;
-  }
-  return (len);
+	int i = 0;
+	int len = 0;
+
+	while (s[i])
+	{
+	_putchar(s[i]);
+	len++;
+	i++;
+	}
+	return (len);
 }
 
 /**
@@ -62,45 +58,42 @@ int _puts(char *s)
  */
 int _printf(const char *format, ...)
 {
-    va_list args;
-    int print = 0;
-  
-    va_start(args, format);
-  
-    while (*format)
-    {
+	va_list args;
+	int print = 0;
+
+	va_start(args, format);
+
+	while (*format)
+	{
 	if (*format == '%')
 
-	    switch (*(++format))
-	    {
-	    
-	    case 'c':
-		print += _putchar(va_arg(args, int));
-		break;
-	    
-	    case 's':
-		print += _puts(va_arg(args, char*));
-		break;
+	switch (*(++format))
+	{
 
-	    case '%':
-		print += _putchar('%');
-		break;
-	    case 'd':
-	    case 'i':
-		print += int_handler(va_arg(args, int));
-		break;
-	    default:
-		print += _putchar(*format);
-		break;
-
-	    }
+		case 'c':
+			print += _putchar(va_arg(args, int));
+			break;
+		case 's':
+			print += _puts(va_arg(args, char*));
+			break;
+		case '%':
+			print += _putchar('%');
+			break;
+		case 'd':
+		case 'i':
+			print += int_handler(va_arg(args, int));
+			break;
+		default:
+			print += _putchar(*format);
+			break;
+	}
 	else
-        {
-	    print += write(1, &(*format), 1);
-        }
+	{
+		print += write(1, &(*format), 1);
+	}
 	format++;
-    }
-    va_end(args);
-  
-    return (print);
+	}
+	va_end(args);
+
+	return (print);
 }
