@@ -9,10 +9,6 @@
  *@c: the character to write
  *Return: Nothing
  */
-int _putchar(char c)
-{
-        return (write(1, &c, 1));
-}
 /**
  * _strlen -  swaps the values of two integers.
  * @s: String input

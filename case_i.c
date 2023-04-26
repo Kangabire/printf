@@ -18,7 +18,7 @@ int int_handler(int value)
         if (value < 0)
         {
         _putchar('-');
-	        char_count++;
+       	char_count++;
         value = -value;
         }
         do {
