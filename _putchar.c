@@ -1,11 +1,13 @@
 #include "main.h"
 #include <stdio.h>
 #include <unistd.h>
+
 /**
  * _putchar - writes a character to the standard output
  *@c: the character to write
- *Return: Nothing
+ *Return: Nothing at all
  */
+
 int _putchar(char c)
 {
         return (write(1, &c, 1));

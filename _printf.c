@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 /**
- * _strlen -  determine length of the string
+ * _strlen -  determines length of the string
  *
  * @s: String input
  *

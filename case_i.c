@@ -2,11 +2,12 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
+
 /**
  * int_handler - handles the integers in placed in the string
  * @value: the name of the integer
  *
- * Return: 0
+ * Return: Always 0
  */
 int int_handler(int value)
 {
